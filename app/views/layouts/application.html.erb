@@ -2,14 +2,18 @@
 <html>
   <head>
     <title><%= full_title(yield(:title)) %></title>
+    <meta charset="utf-8">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinkstrack': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinkstrack': 'reload' %>
+    <%= render 'layouts/shim' %> <!-- it is looking for a file called _shum.html.erb in views -->
   </head>
-
   <body>
-    <%= yield %>
+    <%= render 'layouts/header' %>
+    <div class="container">
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+    </div>
   </body>
 </html>
