@@ -67,6 +67,30 @@ p {
   }
 }
 
+#logout{color: $light-pink;
+  &:hover {
+    color: $dark-pink;
+  }
+}
+
+#settings {color: $light-pink;
+  &:hover {
+    color: $dark-pink;
+  }
+}
+
+#profile{color: $light-pink;
+  &:hover {
+    color: $dark-pink;
+  }
+}
+
+#users {color: $light-pink;
+  &:hover {
+    color: $dark-pink;
+  }
+}
+
 #logo {
   float: left;
   margin-right: 10px;
