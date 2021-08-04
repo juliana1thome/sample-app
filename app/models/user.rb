@@ -7,7 +7,9 @@ class User < ApplicationRecord
     format: { with: VALID_EMAIL_REGEX  },
     uniqueness: true
   has_secure_password
-  validates :password, presence: true, length: { minimum: 6  }
+  validates :password, presence: true, length: { minimum: 6  }, allow_nil: true 
+  # Don't worry(the allow_nill: true will not allow users to sing up without a password. 
+  # Since that has_secure_password includes a separare presence validation that specifically catches nil passwords)
 
   # Returns the hash digest of the given string.
   def User.digest(string)
