@@ -6,9 +6,18 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     @user = users(:juliana)
   end
 
-  test "unsuccessfull edit" do
+  test "unsuccessful edit" do
+    log_in_as(@user)
     get edit_user_path(@user)
     assert_template 'users/edit'
+    patch user_path(@user), params: { user: { name: "", email: "foo@invalid", password: "foo", password_confirmation: "bar"  }  }
+    assert_template 'users/edit'
+  end
+
+  test "successful edit with friendly forwarding" do
+    get edit_user_path(@user)
+    log_in_as(@user)
+    assert_redirected_to edit_user_path(@user)
     name =  "Ju Tho"
     email = "ju@ju.com"
     patch user_path(@user), params:{user: {name: name, email: email, password: "", password_confirmation: ""}} # Note that the password is in blanc. The reason for this is that the user could want to update other informations without updating the pass...
