@@ -22,9 +22,9 @@ class UsersController < ApplicationController
     # version
     @user = User.new(user_params)
     if @user.save # Handle a successful save.
-      log_in @user
-      flash[:sucess] = "Welcome to my WONDERFUL Sample App ʕ•́ᴥ•̀ʔっ"
-      redirect_to @user
+      @user.send_activation_email
+      flash[:info] = "Welcome to Sample App ʕ•́ᴥ•̀ʔっ Please check your email to activate your account."
+      redirect_to root_url
     else
       render 'new' # render the page new so the user can try again
     end

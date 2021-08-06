@@ -6,7 +6,9 @@ User.create!(name: "Juliana Caldeira Thome",
              email: "juju1thome@gmail.com",
              password: "julianaperfect",
              password_confirmation: "julianaperfect",
-             admin: true) # Completing the idea that this user is perferct LOL
+             admin: true,
+            activated: true,
+            activated_at: Time.zone.now) # Completing the idea that this user is perferct LOL
 # Generate a bunch of additional users.
 99.times do |n|
   name = Faker::Name.name
@@ -15,5 +17,7 @@ User.create!(name: "Juliana Caldeira Thome",
   User.create!(name: name,
                email: email,
                password: password,
-               password_confirmation: password)
+               password_confirmation: password,
+              activated: true,
+              activated_at: Time.zone.now)
 end
