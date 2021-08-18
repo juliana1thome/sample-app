@@ -14,6 +14,9 @@ Rails.application.configure do
     :enable_starttls_auto => true
   }
 
+  # Store uploaded files on Amazon AWS.
+  config.active_storage.service = :amazon
+
   # Force all access to the app over SSL, use Strict-TransportSecurity,
   # and use secure cookies.
   config.force_ssl = true
